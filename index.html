@@ -421,7 +421,7 @@ img{max-width:100%}
           <div style="font-size:.82rem;font-weight:700;color:var(--text);margin-bottom:.7rem">
             <i class="fas fa-qrcode" style="color:var(--orange);margin-right:.3rem"></i> QR 코드로 바로 설치
           </div>
-          <canvas id="nt-qr" style="border-radius:8px;display:block;margin:0 auto"></canvas>
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=148x148&data=https%3A%2F%2Fapp.cosmoedu.co.kr%2Fnuguritalk%2Fapp&margin=1&color=1A1A1A" width="148" height="148" alt="너구리톡 설치 QR 코드" style="border-radius:8px;display:block;margin:0 auto">
           <div style="font-size:.75rem;color:var(--muted);margin-top:.4rem">스마트폰 카메라로 스캔하세요</div>
         </div>
         <div style="margin-top:1.2rem;padding-top:1rem;border-top:1px solid var(--border)">
@@ -477,7 +477,6 @@ img{max-width:100%}
 
 
 <!-- ── JS ── -->
-<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
 <script>
 (function(){
   'use strict';
@@ -489,13 +488,6 @@ img{max-width:100%}
     entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target); } });
   }, {threshold:0.08, rootMargin:'0px 0px -20px 0px'});
   document.querySelectorAll('.rv').forEach(function(el){ ro.observe(el); });
-
-  var qrCanvas = document.getElementById('nt-qr');
-  if(qrCanvas && typeof QRCode !== 'undefined'){
-    QRCode.toCanvas(qrCanvas, 'https://app.cosmoedu.co.kr/nuguritalk/app', {
-      width: 148, margin: 1, color: { dark: '#1A1A1A', light: '#FFFFFF' }
-    });
-  }
 })();
 </script>
 </body>
